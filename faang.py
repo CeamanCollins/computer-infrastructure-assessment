@@ -1,7 +1,7 @@
+#! /usr/bin/env python
+
 # Computer Innfrastructure Assessment - FAANG Stock Data
 # Author: Céaman Collins
-
-#! /usr/bin/env computer-infrastructure
 
 import yfinance as yf
 import pandas as pd
@@ -25,7 +25,7 @@ def plot_data():
     for stock in data['Close'].columns:
         plt.plot(data['Close'][stock], label=stock)
     plt.legend(loc='best')
-    plt.title('FAANG Stock Prices Over the Last 5 Days')
+    plt.title('Closing Prices of META, AAPL, AMZN, NFLX, GOOG')
     plt.xticks(rotation=20)
     plt.xlabel('Date')
     plt.ylabel('Closing Price')
