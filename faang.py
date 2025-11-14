@@ -6,7 +6,6 @@
 import yfinance as yf
 import pandas as pd
 import datetime as dt
-import matplotlib.pyplot as plt
 import os
 import glob
 
@@ -21,15 +20,12 @@ def plot_data():
     list_of_files = glob.glob('data/*.csv')
     latest_file = max(list_of_files, key=os.path.getctime)
     data = pd.read_csv(latest_file, header=[0, 1], index_col=0, parse_dates=True)
-    plt.style.use('tableau-colorblind10')
-    for stock in data['Close'].columns:
-        plt.plot(data['Close'][stock], label=stock)
-    plt.legend(loc='best')
-    plt.title('Closing Prices of META, AAPL, AMZN, NFLX, GOOG')
-    plt.xticks(rotation=20)
-    plt.xlabel('Date')
-    plt.ylabel('Closing Price')
-    plt.savefig(f"plots/{os.path.splitext(latest_file)[0][5:]}.png")
-    plt.close()
+    fig = data.plot(y='Close',
+                    title='FAANG Stock Prices Over the Last 5 Days',
+                    xlabel='Date',
+                    ylabel='Closing Price',
+                    rot=20,
+                    legend=True)
+    fig.figure.savefig(f"plots/{os.path.splitext(latest_file)[0][5:]}.png")
 
 plot_data()
