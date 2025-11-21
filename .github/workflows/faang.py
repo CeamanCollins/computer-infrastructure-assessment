@@ -11,12 +11,12 @@ import glob
 
 def get_data():
     data = yf.download(["META", "AAPL", "AMZN", "NFLX", "GOOG"], period="5d", interval="1h")
-    data.to_csv(f"data/{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
+    data.to_csv(f"../../data/{dt.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv")
 
 get_data()
 
 def plot_data():
-    list_of_files = glob.glob('/data/*.csv')
+    list_of_files = glob.glob('../../data/*.csv')
     latest_file = max(list_of_files, key=os.path.getctime)
     data = pd.read_csv(latest_file, header=[0, 1], index_col=0, parse_dates=True)
     fig = data.plot(y='Close',
@@ -25,7 +25,7 @@ def plot_data():
                     ylabel='Closing Price',
                     rot=20,
                     legend=True)
-    fig.figure.savefig(f"/plots/{os.path.splitext(latest_file.split('\\')[-1])[0]}.png", dpi=300)
+    fig.figure.savefig(f"../../plots/{os.path.splitext(latest_file.split('\\')[-1])[0]}.png", dpi=300)
     
 
 plot_data()
