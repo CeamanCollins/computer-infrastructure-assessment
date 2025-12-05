@@ -1,0 +1,17 @@
+name: Production of FAANG Report
+run-name: ${{ github.actor }} is creating FAANG Report
+on: 
+  schedule:
+  - cron: '0 11 * * 6'  # At 11:00 AM every Saturday
+jobs:
+  Create_FAANG_Report:
+    name: Create FAANG Report
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Starting FAANG Report Generation"
+      - name: FAANG Report Generation
+        run: |
+          ./faang.py
+      - run: |
+          echo "FAANG Report Generated Successfully"
