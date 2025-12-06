@@ -22,9 +22,11 @@ jobs:
           pip install -r requirements.txt
       - run: |
           echo "Starting FAANG Report Generation"
+      - run: |
+          ls -a $GITHUB_WORKSPACE
       - name: FAANG Report Generation
         run: |
-          /faang.py
+          ${GITHUB_WORKSPACE}/faang.py
       - run: |
           echo "FAANG Report Generated Successfully"
       - name: "Commit and Push Changes"
