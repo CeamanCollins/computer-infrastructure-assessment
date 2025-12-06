@@ -26,7 +26,7 @@ def plot_data():
                     rot=20,
                     legend=True)
     path_to_plots = "plots/"
-    filename = os.path.splitext(latest_file.split('\\')[-1])[0] + ".png"
+    filename = os.path.splitext(latest_file.split('/')[-1])[0] + ".png"
     fig.figure.savefig(os.path.join(path_to_plots, filename), dpi=300)
 
 plot_data()
