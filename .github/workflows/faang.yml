@@ -2,7 +2,7 @@ name: Production of FAANG Report
 run-name: ${{ github.actor }} is creating FAANG Report
 on: 
   schedule:
-  - cron: '0 11 * * 6'  # At 11:00 AM every Saturday
+  - cron: '26 11 * * 6'  # At 11:26 AM every Saturday
   workflow_dispatch:
 permissions: write-all
 jobs:

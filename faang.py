@@ -8,6 +8,7 @@ import pandas as pd
 import datetime as dt
 import os
 import glob
+import platform
 
 def get_data():
     data = yf.download(["META", "AAPL", "AMZN", "NFLX", "GOOG"], period="5d", interval="1h")
@@ -25,8 +26,12 @@ def plot_data():
                     ylabel='Closing Price',
                     rot=20,
                     legend=True)
-    path_to_plots = "plots/"
-    filename = os.path.splitext(latest_file.split('/')[-1])[0] + ".png"
+    if platform.system() == "Windows":
+        path_to_plots = "plots\\"
+        filename = os.path.splitext(latest_file.split('\\')[-1])[0] + ".png"
+    else:
+        path_to_plots = "plots/"
+        filename = os.path.splitext(latest_file.split('/')[-1])[0] + ".png"
     fig.figure.savefig(os.path.join(path_to_plots, filename), dpi=300)
 
 plot_data()
