@@ -22,8 +22,6 @@ jobs:
           pip install -r requirements.txt
       - run: |
           echo "Starting FAANG Report Generation"
-      - run: |
-          ls -la ${GITHUB_WORKSPACE}
       - name: FAANG Report Generation
         run: |
           ${GITHUB_WORKSPACE}/faang.py
