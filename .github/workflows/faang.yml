@@ -1,3 +1,5 @@
+# Adapted from https://copilot.microsoft.com/shares/C5MZr6qsxLJF6aC5pfKrG
+
 name: Production of FAANG Report
 run-name: ${{ github.actor }} is creating FAANG Report
 on: 
@@ -18,7 +20,6 @@ jobs:
           python-version: '3.x'
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
       - run: |
           echo "Starting FAANG Report Generation"
@@ -32,7 +33,7 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
-          git commit -m "Automated FAANG Report Update"
+          git commit -m "Automated FAANG Report Update" || echo "No changes to commit"
           git push origin HEAD:main
       - run: |
           echo "FAANG Report Changes Pushed Successfully"
