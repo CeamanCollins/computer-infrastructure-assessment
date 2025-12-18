@@ -20,8 +20,11 @@ def plot_data():
     list_of_files = glob.glob('data/*.csv')
     latest_file = max(list_of_files, key=os.path.getctime)
     data = pd.read_csv(latest_file, header=[0, 1], index_col=0, parse_dates=True)
+    min_date = data.index.min().strftime('%Y-%m-%d')
+    max_date = data.index.max().strftime('%Y-%m-%d')
+    title = 'FAANG Stock Prices from ' + min_date +' to ' + max_date
     fig = data.plot(y='Close',
-                    title='FAANG Stock Prices Over the Last 5 Days',
+                    title=title,
                     xlabel='Date',
                     ylabel='Closing Price',
                     rot=20,
