@@ -3,6 +3,14 @@ Assessment for ATU module Computer Infrastructure. In the [problems notebook](pr
 
 There is a [requirements](requirements.txt) file containing the required packages for the project.
 
+This code in this project can be executed in codespaces or cloned and run in VSCode or Jupyter Notebook with the required packages installed to the environment.
+
+> pip install -r requirements.txt
+
+or
+
+> conda create --name <environment-name> --file requirements.txt
+
 The full problems are as folows:
 
 ## Problem 1: Data from yfinance
