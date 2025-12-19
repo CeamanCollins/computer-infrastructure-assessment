@@ -13,7 +13,7 @@ or
 
 > conda create --name <environment-name> --file requirements.txt
 
-The full problems are as folows:
+The full problems are as follows:
 
 ## Problem 1: Data from yfinance
 > Using the yfinance Python package, write a function called `get_data()` that downloads all hourly data for the previous five days for the five FAANG stocks:
