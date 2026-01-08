@@ -1,36 +1,73 @@
-# computer-infrastructure-assessment
-Assessment for ATU module Computer Infrastructure. In the [problems notebook](problems.ipynb) you will find a series of tasks set by the lecturer for the course that dealt with downloading stock data from Y!Finance and plotting that data. Then we were asked to create a [python script](faang.py) that would perform the process in one go, which we were asked to make executable. We then created a GitHub action that would automatically run the script every Saturday. 
+# Computer Infrastructure Assessment
 
-There is a [requirements](requirements.txt) file containing the required packages for the project.
+## Project Summary
 
-To execute the code contained in this project, please open the problems notebook in CodeSpaces, VSCode or JupyterNotebook in a python environment with the required packages installed.
+The **Computer Infrastructure Assessment** is a coursework project for the ATU module *Computer Infrastructure*. The project demonstrates key skills in data retrieval, visualization, scripting, and automation using Python and GitHub Actions.
 
-Installing packages:
+You can find the full notebook for this project [here](problems.ipynb).
 
-> pip install -r requirements.txt
+## Project Description
 
-or
+This project involves solving a series of four tasks designed to enhance proficiency in:
+- Fetching financial data using APIs.
+- Plotting and analyzing stock data using Python.
+- Writing scripts for repeated use and execution from the terminal.
+- Automating workflows with GitHub Actions.
 
-> conda create --name <environment-name> --file requirements.txt
+## Technologies Used
 
-The full problems are as follows:
+The project incorporates the following technologies:
+- **Python:** For retrieving, processing, and visualizing data.
+- **yfinance:** Python library for accessing financial market data.
+- **Matplotlib:** Data visualization library for creating stock price charts.
+- **GitHub Actions:** For setting up CI automation workflows to run the Python script on a schedule.
 
-## Problem 1: Data from yfinance
-> Using the yfinance Python package, write a function called `get_data()` that downloads all hourly data for the previous five days for the five FAANG stocks:
->
-> * Facebook (META)
-> * Apple (AAPL)
-> * Amazon (AMZN)
-> * Netflix (NFLX)
-> * Google (GOOG)
-> 
-> The function should save the data into a folder called `data` in the root of your repository using a filename with the format `YYYYMMDD-HHmmss.csv` where `YYYYMMDD` is the four-digit year (e.g. 2025), followed by the two-digit month (e.g. 09 for September), followed by the two digit day, and `HHmmss` is hour, minutes, seconds. Create the `data` folder if you don't already have one.
+## Setup and Installation
 
-## Problem 2: Plotting Data
-> Write a function called `plot_data()` that opens the latest data file in the `data` folder and, on one plot, plots the `Close` prices for each of the five stocks. The plot should include axis labels, a legend, and the date as a title. The function should save the plot into a plots folder in the root of your repository using a filename in the format `YYYYMMDD-HHmmss.png`. Create the `plots` folder if you don't already have one.
+To execute the project tasks, ensure you have the required packages installed in a Python environment. You can install the required dependencies from the `requirements.txt` file:
 
-## Problem 3: Script
-> Create a Python script called `faang.py` in the root of your repository. Copy the above functions into it and it so that whenever someone at the terminal types `./faang.py`, the script runs, downloading the data and creating the plot. Note that this will require a shebang line and the script to be marked executable. Explain the steps you took in your notebook.
+```bash
+pip install -r requirements.txt
+```
 
-## Problem 4: Automation
-> Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called `faang.yml` in a `.github/workflows/` folder in the root of your repository. In your notebook, explain each of the individual lines in your workflow.
+Alternatively, using Conda:
+
+```bash
+conda create --name <environment-name> --file requirements.txt
+```
+
+The project code can be executed in CodeSpaces, VSCode, or Jupyter Notebook.
+
+## Tasks and Problem Descriptions
+
+### Problem 1: Data from yfinance
+Using the yfinance Python package, write a function called `get_data()` that downloads all hourly data for the previous five days for the five FAANG stocks:
+- Facebook (META)
+- Apple (AAPL)
+- Amazon (AMZN)
+- Netflix (NFLX)
+- Google (GOOG)
+
+The function should save the data into a folder called `data` in the root of your repository using a filename with the format `YYYYMMDD-HHmmss.csv`, where `YYYYMMDD` is the four-digit year (e.g., 20250101) and `HHmmss` is the time.
+
+---
+
+### Problem 2: Plotting Data
+Write a function called `plot_data()` that opens the latest data file in the `data` folder and, on one plot, plots the `Close` prices for each of the five stocks. The plot should include axis labels, a legend, and a title.
+
+---
+
+### Problem 3: Script
+Create a Python script called `faang.py` in the root of your repository. Copy the above functions into it, so that whenever someone at the terminal types `./faang.py`, the script runs, downloads the data, and creates the plot.
+
+---
+
+### Problem 4: Automation
+Create a GitHub Actions workflow to run your script every Saturday morning. The script should be called `faang.yml` in a `.github/workflows/` folder in the root of your repository. In your notebook, explain how and why this workflow works.
+
+---
+
+## Development History and Additional Information
+
+- This project serves as an assessment for the module and encompasses both programming and automation tasks.
+- The GitHub Actions workflow is designed to automate data retrieval and processing for the provided tasks weekly.
