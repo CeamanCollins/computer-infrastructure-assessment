@@ -71,3 +71,9 @@ Create a GitHub Actions workflow to run your script every Saturday morning. The 
 
 - This project serves as an assessment for the module and encompasses both programming and automation tasks.
 - The GitHub Actions workflow is designed to automate data retrieval and processing for the provided tasks weekly.
+
+---
+
+## Contact
+
+For any issues or questions regarding this project, please feel free to contact **Céaman Collins**, the sole contributor. You can reach out via GitHub.
